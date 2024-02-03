@@ -5,7 +5,7 @@ public class ArrayStorage {
     int size;
 
     void clear() {
-        for (int i = 0; i <= size; i++) {
+        for (int i = 0; i < size; i++) {
             storage[i] = null;
         }
         size = 0;
@@ -25,9 +25,9 @@ public class ArrayStorage {
     }
 
     void delete(String uuid) {
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < storage.length; i++) {
             if (storage[i].toString().equals(uuid)) {
-                storage[i] = storage[size-- - 1];
+                storage[i] = storage[--size];
                 break;
             }
         }
