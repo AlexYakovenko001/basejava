@@ -9,31 +9,39 @@ public class ArrayStorage {
     private int size;
 
     public void clear() {
-        for (int i = 0; i < size; i++) {
-            storage[i] = null;
-        }
+        Arrays.fill(storage, 0, size, null);
         size = 0;
     }
 
     public void save(Resume r) {
-        storage[size++] = r;
+        if (!isResumePresent(r.toString()) && size < storage.length) {
+            storage[size++] = r;
+        } else {
+            System.out.println("Resume " + r + " already exists in the system");
+        }
+    }
+
+    public void update(Resume resume) {
+        int index = findResume(resume.toString());
+        if (index != -1) {
+            storage[index].setUuid(storage[index].getUuid() + " updated");
+        }
     }
 
     public Resume get(String uuid) {
-        for (int i = 0; i < size; i++) {
-            if (storage[i].toString().equals(uuid)) {
-                return storage[i];
+        if (!uuid.equals("dummy")) {
+            int index = findResume(uuid);
+            if (index != -1) {
+                return storage[index];
             }
         }
         return null;
     }
 
     public void delete(String uuid) {
-        for (int i = 0; i < size; i++) {
-            if (storage[i].toString().equals(uuid)) {
-                storage[i] = storage[--size];
-                break;
-            }
+        int index = findResume(uuid);
+        if (index != -1) {
+            storage[index] = storage[--size];
         }
     }
 
@@ -43,5 +51,24 @@ public class ArrayStorage {
 
     public int size() {
         return size;
+    }
+
+    private boolean isResumePresent(String uuid) {
+        for (int i = 0; i < size; i++) {
+            if (storage[i].toString().equals(uuid)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private int findResume(String uuid) {
+        for (int i = 0; i < size; i++) {
+            if (storage[i].toString().equals(uuid)) {
+                return i;
+            }
+        }
+        System.out.println("Error: resume " + uuid + " not found in the system");
+        return -1;
     }
 }
