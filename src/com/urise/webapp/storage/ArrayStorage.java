@@ -28,7 +28,7 @@ public class ArrayStorage {
     public void update(Resume resume) {
         int index = getIndex(resume.toString());
         if (index != -1) {
-            storage[index].setUuid(resume.getUuid() + " updated");
+            storage[index] = resume;
         } else {
             System.out.println("No resume with id: " + resume.getUuid() + "were found for updating");
         }
