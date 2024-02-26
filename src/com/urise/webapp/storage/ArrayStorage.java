@@ -38,8 +38,6 @@ public class ArrayStorage {
         int index = getIndex(uuid);
         if (index != -1) {
             return storage[index];
-        } else if (uuid.equals("dummy")) {
-            System.out.println("Enter unique userId for creating a new resume");
         } else {
             System.out.println("No resume with id: " + uuid + "were found");
         }
