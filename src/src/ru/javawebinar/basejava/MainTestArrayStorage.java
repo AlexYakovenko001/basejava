@@ -1,8 +1,8 @@
-package com.urise.webapp;
+package src.ru.javawebinar.basejava;
 
-import com.urise.webapp.model.Resume;
-import com.urise.webapp.storage.ArrayStorage;
-import com.urise.webapp.storage.Storage;
+import src.ru.javawebinar.basejava.model.Resume;
+import src.ru.javawebinar.basejava.storage.ArrayStorage;
+import src.ru.javawebinar.basejava.storage.Storage;
 
 public class MainTestArrayStorage {
     private final static Storage ARRAY_STORAGE = new ArrayStorage();

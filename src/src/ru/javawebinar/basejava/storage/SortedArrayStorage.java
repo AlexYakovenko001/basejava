@@ -1,6 +1,6 @@
-package com.urise.webapp.storage;
+package src.ru.javawebinar.basejava.storage;
 
-import com.urise.webapp.model.Resume;
+import src.ru.javawebinar.basejava.model.Resume;
 
 import java.util.Arrays;
 
