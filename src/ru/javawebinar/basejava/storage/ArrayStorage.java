@@ -2,14 +2,7 @@ package ru.javawebinar.basejava.storage;
 
 import ru.javawebinar.basejava.model.Resume;
 
-import java.util.Arrays;
-
 public class ArrayStorage extends AbstractArrayStorage {
-
-    public void clear() {
-        Arrays.fill(storage, 0, size, null);
-        size = 0;
-    }
 
     public void save(Resume r) {
         int index = getIndex(r.toString());
@@ -39,10 +32,6 @@ public class ArrayStorage extends AbstractArrayStorage {
         } else {
             System.out.println("No resume with id: " + uuid + "were found for deleting");
         }
-    }
-
-    public Resume[] getAll() {
-        return Arrays.copyOf(storage, size);
     }
 
     protected int getIndex(String uuid) {
